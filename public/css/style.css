@@ -1,4 +1,5 @@
-header, .project:not(:last-child) {
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -24,7 +25,8 @@ header, .project:not(:last-child) {
 }
 
 html {
-  background: url(./images/pexels-pixabay-71104.jpg) no-repeat center center fixed;
+  background: url(https://images.pexels.com/photos/71104/utah-mountain-biking-bike-biking-71104.jpeg?cs=srgb&dl=pexels-pixabay-71104.jpg&fm=jpg)
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -50,7 +52,6 @@ html {
 }
 
 .cardImage {
-
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -75,7 +76,6 @@ p {
   margin-right: 45px;
   color: black;
   font-family: 'Work Sans', sans-serif;
-
 }
 
 .navbar-item img {
@@ -124,8 +124,6 @@ img {
 .show {
   display: block;
 }
-
-
 
 .field.has-addons .control:first-child:not(:only-child) .button,
 .field.has-addons .control:first-child:not(:only-child) .input,
