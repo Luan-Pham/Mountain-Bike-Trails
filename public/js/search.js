@@ -1,8 +1,6 @@
 var searcher = document.getElementById('search');
 var submitBtn = document.getElementById('searchBtn');
 
-// var searchValue = $('#searchInput').val();
-
 const options = {
   method: 'GET',
   headers: {
@@ -10,6 +8,23 @@ const options = {
     'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com',
   },
 };
+
+//api.geoapify.com/v1/geocode/search?city=${}&apiKey=5a24470a7ccc4f68933fcf2cb03816c9
+
+function coordinates() {
+  var city = document.getElementById('searchInput').value;
+  console.log(city);
+  const geoAPI =
+    'https://api.geoapify.com/v1/geocode/search?city=' +
+    city +
+    '&apiKey=5a24470a7ccc4f68933fcf2cb03816c9';
+  console.log(geoAPI);
+
+  fetch(geoAPI)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+}
+
 function search() {
   const radius = 'radius=25';
   const trailAPI =
@@ -32,6 +47,7 @@ function search() {
     .catch((err) => console.error(err));
 }
 
+submitBtn.addEventListener('click', coordinates);
 submitBtn.addEventListener('click', search);
 
 // fetch(
