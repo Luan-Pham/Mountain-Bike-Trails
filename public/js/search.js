@@ -14,12 +14,16 @@ const options = {
 function search() {
   var location = document.getElementById('searchInput').value;
   location = location.split(',');
+  const city = location[0];
+  city = city.replace(/ /g, '%20');
+  const state = location[1];
+  state = state.replace(/ /g, '%20');
   console.log(location);
   const geoAPI =
     'https://api.geoapify.com/v1/geocode/search?city=' +
-    location[0] +
+    city +
     '&state=' +
-    location[1] +
+    state +
     '&apiKey=5a24470a7ccc4f68933fcf2cb03816c9';
   console.log(geoAPI);
 
