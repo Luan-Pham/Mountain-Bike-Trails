@@ -14,9 +14,9 @@ const options = {
 function search() {
   var location = document.getElementById('searchInput').value;
   location = location.split(',');
-  const city = location[0];
+  var city = location[0];
   city = city.replace(/ /g, '%20');
-  const state = location[1];
+  var state = location[1];
   state = state.replace(/ /g, '%20');
   console.log(location);
   const geoAPI =
