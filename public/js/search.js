@@ -11,43 +11,64 @@ const options = {
 
 //api.geoapify.com/v1/geocode/search?city=${}&apiKey=5a24470a7ccc4f68933fcf2cb03816c9
 
-function coordinates() {
-  var city = document.getElementById('searchInput').value;
-  console.log(city);
+function search() {
+  var location = document.getElementById('searchInput').value;
+  location = location.split(',');
+  console.log(location);
   const geoAPI =
     'https://api.geoapify.com/v1/geocode/search?city=' +
-    city +
+    location[0] +
+    '&state=' +
+    location[1] +
     '&apiKey=5a24470a7ccc4f68933fcf2cb03816c9';
   console.log(geoAPI);
 
   fetch(geoAPI)
     .then((response) => response.json())
-    .then((response) => console.log(response));
+    .then(function (data) {
+      console.log(data);
+      lat = data.features[0].properties.lat;
+      lon = data.features[0].properties.lon;
+      const radius = 'radius=25';
+      const limit = 'limit=5';
+      const trailAPI =
+        'https://trailapi-trailapi.p.rapidapi.com/activity/?lat=' +
+        lat +
+        '&lon=' +
+        lon +
+        '&' +
+        limit +
+        '&' +
+        radius +
+        '&q-activities_activity_type_name_eq=mountain%20biking';
+      fetch(trailAPI, options)
+        .then((response) => response.json())
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err));
+    });
 }
 
-function search() {
-  const radius = 'radius=25';
-  const trailAPI =
-    'https://trailapi-trailapi.p.rapidapi.com/activity/?' +
-    'lat=' +
-    '37' +
-    '&lon=' +
-    '121' +
-    '&' +
-    // limit +
-    // '&' +
-    radius +
-    '&' +
-    'q-activities_activity_type_name_eq=mountain%20biking';
-  console.log(trailAPI);
+// function search() {
+//   const radius = 'radius=25';
+//   const trailAPI =
+//     'https://trailapi-trailapi.p.rapidapi.com/activity/?' +
+//     'lat=' +
+//     '37' +
+//     '&lon=' +
+//     '121' +
+//     '&' +
+//     // limit +
+//     // '&' +
+//     radius +
+//     '&' +
+//     'q-activities_activity_type_name_eq=mountain%20biking';
+//   console.log(trailAPI);
 
-  fetch(trailAPI, options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-}
+// fetch(trailAPI, options)
+//   .then((response) => response.json())
+//   .then((response) => console.log(response))
+//   .catch((err) => console.error(err));
 
-submitBtn.addEventListener('click', coordinates);
 submitBtn.addEventListener('click', search);
 
 // fetch(
