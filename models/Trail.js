@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Trail extends Model {}
 
-Project.init(
+Trail.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -23,9 +23,15 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
+    image: {
+      type: DataTypes.STRING,
+    },
+    review: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -40,8 +46,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'trail',
   }
 );
 
-module.exports = Project;
+module.exports = Trail;

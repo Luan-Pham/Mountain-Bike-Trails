@@ -1,5 +1,6 @@
 var searcher = document.getElementById('search');
 var submitBtn = document.getElementById('searchBtn');
+// const { trailKey, geoKey } = require('../../keys.js');
 
 const options = {
   method: 'GET',
