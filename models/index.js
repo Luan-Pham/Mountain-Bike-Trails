@@ -1,5 +1,5 @@
 const User = require('./User');
-const Project = require('./Trail');
+const Trail = require('./Trail');
 const Trail = require('./Trail');
 
 User.hasMany(Project, {
@@ -11,4 +11,4 @@ Trail.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-module.exports = { User, Project };
+module.exports = { User, Trail };
