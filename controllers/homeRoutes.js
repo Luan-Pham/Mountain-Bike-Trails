@@ -12,7 +12,7 @@ router.get('/trails', async (req, res) => {
         limit: '5',
         lon: '-105.2',
         radius: '25',
-        'q-activities_activity_type_name_eq': 'hiking',
+        'q-activities_activity_type_name_eq': 'mountain biking',
       },
       headers: {
         'X-RapidAPI-Key': process.env.TRAIL_KEY,
