@@ -1,15 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Reviews extends Model {}
+class Trail extends Model {}
 
-Reviews.init(
+Trail.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
@@ -19,11 +23,14 @@ Reviews.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    user_id: {
+    image: {
+      type: DataTypes.STRING,
+    },
+    review_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: 'review',
+        foreignKey: 'id',
       },
     },
   },
@@ -32,8 +39,8 @@ Reviews.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'review',
+    modelName: 'trail',
   }
 );
 
-module.exports = Reviews;
+module.exports = Trail;
