@@ -1,14 +1,18 @@
 const User = require('./User');
-const Trail = require('./Trail');
-const Trail = require('./Trail');
+const Trails = require('./trails');
+const Reviews = require('./reviews');
 
-User.hasMany(Project, {
-  foreignKey: 'user_id',
+User.hasMany(Reviews, {
+  foreignKey: 'review_id',
   onDelete: 'CASCADE',
 });
 
-Trail.belongsTo(User, {
-  foreignKey: 'user_id',
+Trails.hasMany(Reviews, {
+  foreignKey: 'review_id',
 });
 
-module.exports = { User, Trail };
+User.belongsTo(Reviews, {
+  foreignKey: 'review_id',
+});
+
+module.exports = { User, Trails, Reviews };

@@ -2,17 +2,32 @@ const router = require('express').Router();
 const { Trail, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/trails', async (req, res) => {
   try {
-    // Get all trails and JOIN with user data
-    const trailData = await Trail.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    const options = {
+      method: 'GET',
+      url: 'https://trailapi-trailapi.p.rapidapi.com/activity/',
+      params: {
+        lat: '34.1',
+        limit: '5',
+        lon: '-105.2',
+        radius: '25',
+        'q-activities_activity_type_name_eq': 'hiking',
+      },
+      headers: {
+        'X-RapidAPI-Key': process.env.TRAIL_KEY,
+        'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com',
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
 
     // Serialize data so the template can read it
     const trails = trailData.map((trail) => trail.get({ plain: true }));

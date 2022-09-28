@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Trail extends Model {}
+class Trails extends Model {}
 
-Trail.init(
+Trails.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -50,4 +50,4 @@ Trail.init(
   }
 );
 
-module.exports = Trail;
+module.exports = Trails;
