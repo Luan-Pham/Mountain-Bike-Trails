@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const { Trail, User } = require('../models');
 const withAuth = require('../utils/auth');
+const axios = require('axios');
 
 router.get('/trails', async (req, res) => {
+  console.log('TESTING');
   try {
     const options = {
       method: 'GET',
@@ -19,15 +21,41 @@ router.get('/trails', async (req, res) => {
         'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com',
       },
     };
-
     axios
       .request(options)
       .then(function (response) {
+        console.log('--------------------------------');
         console.log(response.data);
       })
       .catch(function (error) {
         console.error(error);
       });
+    res.json('TESTING');
+    // Serialize data so the template can read it
+    // const trails = trailData.map((trail) => trail.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    // res.render('homepage', {
+    //   trails,
+    //   logged_in: req.session.logged_in,
+    // });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    // Get all trails and JOIN with user data
+    const trailData = await Trail.findAll({
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
+    });
 
     // Serialize data so the template can read it
     const trails = trailData.map((trail) => trail.get({ plain: true }));
