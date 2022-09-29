@@ -6,7 +6,8 @@ const axios = require('axios');
 router.get('/trails', async (req, res) => {
   console.log('TESTING');
   try {
-    var location = document.getElementById('searchInput').value;
+    // var location = req.body.location?? maybe?
+    // var location = document.getElementById('searchInput').value;
     location = location.split(',');
     var city = location[0];
     city = city.replace(/ /g, '%20');
