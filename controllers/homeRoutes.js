@@ -6,13 +6,34 @@ const axios = require('axios');
 router.get('/trails', async (req, res) => {
   console.log('TESTING');
   try {
+    var location = document.getElementById('searchInput').value;
+    location = location.split(',');
+    var city = location[0];
+    city = city.replace(/ /g, '%20');
+    var state = location[1];
+    state = state.replace(/ /g, '%20');
+    console.log(location);
+    const geoAPI =
+      'https://api.geoapify.com/v1/geocode/search?city=' +
+      city +
+      '&state=' +
+      state +
+      '&apiKey=' +
+      process.env.GEO_KEY;
+    fetch(geoAPI)
+      .then((response) => response.json())
+      .then(function (data) {
+        console.log(data);
+        geoLat = data.features[0].properties.lat;
+        geoLon = data.features[0].properties.lon;
+      });
     const options = {
       method: 'GET',
       url: 'https://trailapi-trailapi.p.rapidapi.com/activity/',
       params: {
-        lat: '34.1',
+        lat: geoLat,
         limit: '5',
-        lon: '-105.2',
+        lon: geoLon,
         radius: '25',
         'q-activities_activity_type_name_eq': 'mountain biking',
       },
