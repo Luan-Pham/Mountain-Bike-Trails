@@ -36,6 +36,7 @@ html {
 #footer {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 2.5rem;
   background-color: whitesmoke;
@@ -137,6 +138,18 @@ img {
   width: 30rem;
   grid-template-rows: max-content 300px 1fr;
 }
+
+.search-result-container {
+  display: column;
+
+}
+
+.search-result-card {
+  display: column;
+  width: 50rem;
+  grid-template-rows: max-content 300px 1fr;
+}
+
 
 /* added styling for title animation*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat');

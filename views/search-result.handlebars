@@ -1,0 +1,23 @@
+<div class='search-result-container'>
+  <section class="search-result-card">
+    <div class="card-header col-md-12 text-left">
+        <h2>{{name}}</h2>
+    </div>
+    <div class="card-body">
+      <div="cardImage">
+      <img src="/images/{{filename}}" alt="{{description}}">
+      </div>
+      <p> Trail Description: {{description}} </p>
+    </div>
+  </section> 
+</div>
+
+<div class="review-container">
+  <div class='text-center'>
+  <h2>{{name}}</h2>
+  <p>{{description}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <div class='form-group'>
+    <button type='submit' class='btn btn-primary'>Post Review</button>
+  </div>
+</div>
