@@ -1,5 +1,17 @@
 var searcher = document.getElementById('search');
 var submitBtn = document.getElementById('searchBtn');
+const trailTemplate = (name, image, description) => {
+  return `<section class="search-result-card">
+<div class="card-header col-md-12 text-left">
+    <h2>${name}</h2>
+</div>
+<div class="card-body">
+  <div="cardImage">
+  <img src="/images/${image}">
+  </div>
+  <p> Trail Description: ${description} </p>
+</div>
+</section>`}
 // const { trailKey, geoKey } = require('../../keys.js');
 
 const options = {
@@ -48,10 +60,19 @@ function search() {
         '&q-activities_activity_type_name_eq=mountain%20biking';
       fetch(trailAPI, options)
         .then((response) => response.json())
-        .then((response) => console.log(response))
+        .then((response) => {
+          console.log(response)
+          let content = '';
+          const container = document.querySelector("#search-result-container")
+          for (const key in response) {
+            console.log(key, response[key])
+            content += trailTemplate(response[key].name, response[key].activities["mountain biking"].thumbnail)
+          } 
+          container.innerHTML = content
+          });
+        })
         .catch((err) => console.error(err));
-    });
-}
+    };
 
 // function search() {
 //   const radius = 'radius=25';
