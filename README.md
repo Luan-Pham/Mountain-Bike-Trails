@@ -1,3 +1,4 @@
+# Mountain-Bike-Trails
 User Story:
 As a user, I would like to search for trails based on several factors
 I want to search by location, weather, the difficulty, and the views
@@ -40,3 +41,5 @@ Link to Heroku: mountain-bike-trails.herokuapp.com
 
 Link to Github: https://github.com/Luan-Pham/Mountain-Bike-Trails
 
+Screenshot:
+<img width="1181" alt="Screen Shot 2022-09-29 at 7 08 05 PM" src="https://user-images.githubusercontent.com/106893601/193176288-739ff414-f852-442d-b5ec-06059b929508.png">
