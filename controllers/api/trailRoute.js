@@ -1,8 +1,24 @@
 const router = require('express').Router();
-const { Trails } = require('../../models');
+const { Trail } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {});
+router.get('/', async (req, res) => {
+  try {
+    // Get all trails
+    const trailData = await Trail.findAll({});
+
+    // Serialize data so the template can read it
+    const trails = trailData.map((trail) => trail.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('trails', {
+      trails,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/:id', withAuth, async (req, res) => {
   try {
