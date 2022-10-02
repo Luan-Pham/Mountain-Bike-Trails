@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Trails } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', async (req, res) => {});
+
 router.get('/:id', withAuth, async (req, res) => {
   try {
     const newTrail = await Trails.create({
