@@ -31,39 +31,27 @@
                             </a>
             </nav>
         </div>
-
-        <!-- submit button -->
-        <div class="field has-addons is-grouped is-grouped-centered ">
-            <div class="control">
-                <input class="input" type="text" id="searchInput" placeholder="Walnut Creek, CA">
-            </div>
-            <div class="field has-addons is-grouped is-grouped-centered">
-                <div class="control">
-                    <button class="button is-info" id="searchBtn">
-                        Search
-                    </button>
-                </div>
-            </div>
-            <!-- 
-            <div class="hidden " id="card">
-                <div class="cardImage" id="cardImage">
-                </div>
-            </div> -->
-
-        </div>
-
-        <!-- Cards for trail display -->
 <div class='search-result-container' id='search-result-container'>
+  {{#each trails as |trail| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h2>
+      <a href="/api/trails/{{trail.id}}">{{trail.name}}</a>
+    </h2>
+    <p>Check out this trail! {{trail.city}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{trail.description}}
+    </p>
+  </div>
+</div>
+{{/each}}
 </div>
 
     </section>
 
-    <div class="show mt-5" id="card">
-        <div class="cardImage" id="cardImage">
-
-
-        </div>
-        <!-- Footer! -->
+       
     </div>
     <footer id="footer"><strong>bikeRoutes</strong> <a>Made by Team 7</a></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

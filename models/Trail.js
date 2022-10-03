@@ -18,8 +18,8 @@ Trail.init(
     description: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
+    city: {
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
