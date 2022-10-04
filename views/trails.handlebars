@@ -1,39 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../css/style.css">
-    <title>bikeRoutes</title>
-</head>
-
-<body>
-    <section class="title-background">
-        <div class="container-fluid">
-            <!-- navbar -->
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="">
-                    </a>
-
-                    <div id="navbarBasicExample" class="navbar-menu">
-                        <div class="navbar-start">
-                            <a class="navbar-item" href="">
-                               <p><span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
-                            </a>
-            </nav>
-        </div>
+{{#each trails as |trail| }}
 <div class='search-result-container' id='search-result-container'>
-  {{#each trails as |trail| }}
-<div class="row mb-4 project">
+< class="row mb-4 project">
   <div class="col-md-5">
     <h2>
       <a href="/api/trails/{{trail.id}}">{{trail.name}}</a>
@@ -45,9 +13,16 @@
       {{trail.description}}
     </p>
   </div>
-</div>
+
+  <div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src={{trail.image}} />
+    </figure>
+  </div>
 {{/each}}
-</div>
+<script src ="/js/showtrails.js"></script>
+{{!-- </div>
 
     </section>
 
@@ -60,4 +35,4 @@
     <script src="./js/title-text-effect.js"></script>
 </body>
 
-</html>
+</html> --}}
