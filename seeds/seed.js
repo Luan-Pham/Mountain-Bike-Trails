@@ -13,10 +13,11 @@ const seedDatabase = async () => {
   });
 
   for (const trail of trailData) {
-    await Trail.create({
+    const seedData = await Trail.create({
       ...trail,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
+    console.log(seedData);
   }
 
   process.exit(0);

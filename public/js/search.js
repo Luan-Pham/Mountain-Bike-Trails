@@ -11,7 +11,8 @@ const trailTemplate = (name, image, description) => {
   </div>
   <p> Trail Description: ${description} </p>
 </div>
-</section>`}
+</section>`;
+};
 // const { trailKey, geoKey } = require('../../keys.js');
 
 const options = {
@@ -61,18 +62,21 @@ function search() {
       fetch(trailAPI, options)
         .then((response) => response.json())
         .then((response) => {
-          console.log(response)
+          console.log(response);
           let content = '';
-          const container = document.querySelector("#search-result-container")
+          const container = document.querySelector('#search-result-container');
           for (const key in response) {
-            console.log(key, response[key])
-            content += trailTemplate(response[key].name, response[key].activities["mountain biking"].thumbnail)
-          } 
-          container.innerHTML = content
-          });
-        })
-        .catch((err) => console.error(err));
-    };
+            console.log(key, response[key]);
+            content += trailTemplate(
+              response[key].name,
+              response[key].activities['mountain biking'].thumbnail
+            );
+          }
+          container.innerHTML = content;
+        });
+    })
+    .catch((err) => console.error(err));
+}
 
 // function search() {
 //   const radius = 'radius=25';
