@@ -43,3 +43,27 @@ Link to Github: https://github.com/Luan-Pham/Mountain-Bike-Trails
 
 Screenshot:
 <img width="1181" alt="Screen Shot 2022-09-29 at 7 08 05 PM" src="https://user-images.githubusercontent.com/106893601/193176288-739ff414-f852-442d-b5ec-06059b929508.png">
+
+To host the application locally: 
+First, clone the repo. Then:
+
+Install the Node dependencies:
+
+npm install
+
+Populate the .env file with your MySQL credentials:
+
+DB_NAME='bikeroute_db'
+DB_USER='<username_goes_here>'
+DB_PASSWORD='<password_goes_here>'
+Source the MySQl schema:
+
+mysql -u root -p
+SOURCE ./db/schema.sql;
+exit;
+Seed the database locally:
+
+npm run seed
+To start the App:
+
+npm start
