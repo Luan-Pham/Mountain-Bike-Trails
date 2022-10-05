@@ -37,7 +37,7 @@ Have a quality README (with unique name, description, technologies used, screens
 
 Link to Presentation: https://docs.google.com/presentation/d/1auKVBEREXz0XZ8sus2KnRq4VerzT4-vH6X4uO4V2SxM/edit#slide=id.p
 
-Link to Heroku: mountain-bike-trails.herokuapp.com 
+Link to Heroku: https://mountain-bike-trails.herokuapp.com 
 
 Link to Github: https://github.com/Luan-Pham/Mountain-Bike-Trails
 
