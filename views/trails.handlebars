@@ -1,5 +1,4 @@
-
-{{#each trails as |trail| }}
+{{!-- {{#each trails as |trail| }}
 <div class='search-result-container' id='search-result-container'>
 < class="row mb-4 project">
   <div class="col-md-5">
@@ -17,12 +16,12 @@
   <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <img src={{trail.image}} />
+      <img src={{trail.image}} /> />
     </figure>
   </div>
 {{/each}}
-<script src ="/js/showtrails.js"></script>
-{{!-- </div>
+<script src ="/js/showtrails.js"></script> --}}
+{{! </div>
 
     </section>
 
@@ -35,4 +34,27 @@
     <script src="./js/title-text-effect.js"></script>
 </body>
 
-</html> --}}
+</html> }}
+
+{{#each trails as |trail|}}
+  <div class='card'>
+    <div class='card-image'>
+      <figure class='image is-250x250'>
+        <img class='trail-img' src={{trail.image}} alt='Trail Image' />
+      </figure>
+    </div>
+    <div class='card-content'>
+      <div class='media'>
+        <div class='media-content'>
+          <p class='title is-4'>{{trail.name}}</p>
+        </div>
+      </div>
+
+      <div class='content'>
+        {{trail.description}}
+        <br />
+      </div>
+    </div>
+  </div>
+{{/each}}
+<script src='/js/showtrails.js'></script>

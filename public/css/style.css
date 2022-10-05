@@ -71,8 +71,6 @@ p {
   padding-bottom: 1rem;
 }
 
-
-
 .navbar-item img {
   transform: scale(1.5);
 }
@@ -134,14 +132,13 @@ img {
 }
 
 .card {
-  display: column;
-  width: 30rem;
+  display: flex;
+  width: 70rem;
   grid-template-rows: max-content 300px 1fr;
 }
 
 .search-result-container {
   display: column;
-
 }
 
 .search-result-card {
@@ -149,7 +146,6 @@ img {
   width: 50rem;
   grid-template-rows: max-content 300px 1fr;
 }
-
 
 /* added styling for title animation*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
@@ -193,10 +189,27 @@ img {
 }
 
 @keyframes blink {
-  0%  { background-color: #ccc; }
-  49% { background-color: #ccc; }
-  50% { background-color: transparent; }
-  99% { background-color: transparent; }
-  100%  { background-color: #ccc; }
+  0% {
+    background-color: #ccc;
+  }
+  49% {
+    background-color: #ccc;
+  }
+  50% {
+    background-color: transparent;
+  }
+  99% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #ccc;
+  }
 }
 
+.trail-img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100%;
+  height: 80%;
+}
