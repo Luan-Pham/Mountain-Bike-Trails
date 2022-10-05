@@ -7,9 +7,9 @@ const trailTemplate = (name, image, description) => {
 </div>
 <div class="card-body">
   <div="cardImage">
-  <img src="/images/${image}">
+  <img src="${image}">
   </div>
-  <p> Trail Description: ${description} </p>
+  <p> Trail description: ${description} </p>
 </div>
 </section>`;
 };
@@ -69,7 +69,8 @@ function search() {
             console.log(key, response[key]);
             content += trailTemplate(
               response[key].name,
-              response[key].activities['mountain biking'].thumbnail
+              response[key].activities['mountain biking'].thumbnail,
+              response[key].description
             );
           }
           container.innerHTML = content;
