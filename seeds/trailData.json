@@ -1,7 +1,7 @@
 [
   {
     "name": "Alum Rock County Park",
-    "description": "A reasonably nice city park, good viewspot at the top (&quot;Eagle Rock&quot;). Mostly dirt road, with some short sections of technical downhill singletrack.",
+    "description": "A reasonably nice city park, good viewspot at the top (\"Eagle Rock\"). Mostly dirt road, with some short sections of technical downhill singletrack.",
     "city": "San Jose, CA",
     "image": "/Assets/Alum-Rock-County-Park.png"
   },
@@ -13,7 +13,7 @@
   },
   {
     "name": "Fremont Older",
-    "description": "From the sunken parking lot, ride farther into the park on the paved road. Take the ?Canyon? Trail (dirt road), which goes off to the left from the paved road, and then starts a long (10 to 20 minute) climb up into the park.",
+    "description": "From the sunken parking lot, ride farther into the park on the paved road. Take the Canyon Trail (dirt road), which goes off to the left from the paved road, and then starts a long (10 to 20 minute) climb up into the park.",
     "city": "Cupertino, CA",
     "image": "/Assets/Fremont-Older.png"
   }

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Trail, User } = require('../models');
+const { Trail, User, Review } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios');
 
@@ -159,6 +159,11 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/reviews', (req, res) => {
+  
+  res.render('review');
 });
 
 module.exports = router;

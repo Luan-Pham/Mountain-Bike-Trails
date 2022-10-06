@@ -26,13 +26,6 @@ Trail.init(
     image: {
       type: DataTypes.STRING,
     },
-    review_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'review',
-        foreignKey: 'id',
-      },
-    },
   },
   {
     sequelize,
