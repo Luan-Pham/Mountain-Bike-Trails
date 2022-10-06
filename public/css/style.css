@@ -142,8 +142,10 @@ img {
 }
 
 .search-result-card {
-  display: column;
-  width: 50rem;
+  display: grid-template-rows;
+  height: 20%;
+  width: 80%;
+  background-color: whitesmoke;
   grid-template-rows: max-content 300px 1fr;
 }
 
@@ -206,10 +208,38 @@ img {
   }
 }
 
-.trail-img {
+.-img {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 100%;
-  height: 80%;
+  width: 100px;
+  height: 100px;
+}
+
+.img-thumbnail {
+  width: 250px;
+  height: 250px;
+  padding-bottom: 15px;
+  padding-left: 15px; 
+}
+
+.card-title {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.card {
+  background-color: whitesmoke;
+  padding-bottom: 20px;
+}
+
+.btn btn-primary {
+  padding-left: 35px;
+}
+
+.card-title {
+  font-size: 30px;
+  margin-left: 20px;
+  margin-top: 5px;
+  padding-bottom: 10px;
 }
