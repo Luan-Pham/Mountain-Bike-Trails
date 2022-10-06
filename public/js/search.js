@@ -1,18 +1,19 @@
 var searcher = document.getElementById('search');
 var submitBtn = document.getElementById('searchBtn');
 const trailTemplate = (name, image, description) => {
-  return `<section class="search-result-card">
-<div class="card-header col-md-12 text-left">
-    <h2>${name}</h2>
-</div>
-<div class="card-body">
-  <div="cardImage">
-  <img src="${image}">
-  </div>
-  <p> Trail description: ${description} </p>
-</div>
-</section>`;
+  return `<section class="card-group">
+  <div class="card" style="width: 80%;">
+    <img class="img-thumbnail" src="${image}" alt="Image unavailable. Check back soon!">
+    <div class="card-body">
+      <h5 class="card-title">${name}</h5>
+      <p class="card-text"> ${description}</p>
+      <a href="#" class="btn btn-primary">Leave a Review</a>
+    </div>
+  </div>`;
 };
+
+
+
 // const { trailKey, geoKey } = require('../../keys.js');
 
 const options = {
@@ -59,12 +60,12 @@ function search() {
         '&' +
         radius +
         '&q-activities_activity_type_name_eq=mountain%20biking';
-      fetch(trailAPI, options)
+        fetch(trailAPI, options)
         .then((response) => response.json())
         .then((response) => {
           console.log(response);
           let content = '';
-          const container = document.querySelector('#search-result-container');
+          const container = document.querySelector('#card-group');
           for (const key in response) {
             console.log(key, response[key]);
             content += trailTemplate(
@@ -78,6 +79,7 @@ function search() {
     })
     .catch((err) => console.error(err));
 }
+
 
 // function search() {
 //   const radius = 'radius=25';

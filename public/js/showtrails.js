@@ -1,4 +1,4 @@
-const trail = async () => {
+const trails = async () => {
   const response = await fetch('/api/trails', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
