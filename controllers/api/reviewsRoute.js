@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { Reviews } = require('../../models');
+const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newReviews = await Reviews.create({
+    const newReview = await Review.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newReviews);
+    res.status(200).json(newReview);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -17,19 +17,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const reviewsData = await Reviews.destroy({
+    const reviewData = await Review.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!reviewsData) {
-      res.status(404).json({ message: 'No reviews found with this id!' });
+    if (!reviewData) {
+      res.status(404).json({ message: 'No Review found with this id!' });
       return;
     }
 
-    res.status(200).json(reviewsData);
+    res.status(200).json(reviewData);
   } catch (err) {
     res.status(500).json(err);
   }
