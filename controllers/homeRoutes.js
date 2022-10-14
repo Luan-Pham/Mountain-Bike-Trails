@@ -6,8 +6,14 @@ const axios = require('axios');
 router.get('/trails', async (req, res) => {
   try {
     // Get all trails
-    const trailData = await Trail.findAll({});
-
+    const trailData = await Trail.findAll({
+       include: [
+         {
+           model: Review,
+          //attributes: ['name'],
+      },
+     ],
+    });
     // Serialize data so the template can read it
     const trails = trailData.map((trail) => trail.get({ plain: true }));
     console.log(trails);
@@ -98,7 +104,7 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const trails = trailData.map((trail) => trail.get({ plain: true }));
-
+    console.log({trails})
     // Pass serialized data and session flag into template
     res.render('homepage', {
       trails,
@@ -161,9 +167,59 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/reviews', (req, res) => {
+//render review form page
+router.get('/reviews', async (req, res) => {
   
   res.render('review');
 });
+
+//get data entered in review form and pass through trails template
+router.get('/', async (req, res) => {
+  try {
+    // Get all reviews and JOIN with user data
+    const reviewData = await Review.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    console.log("**********************", reviews)
+    // Pass serialized data and session flag into template
+    res.render('trails', { 
+      reviews,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/review/:id', async (req, res) => {
+  try {
+    const reviewData = await review.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const review = reviewData.get({ plain: true });
+
+    res.render('trails', {
+      ...review,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

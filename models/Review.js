@@ -23,6 +23,13 @@ Review.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    trail_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'trail',
+        foreignKey: 'id',
+      },
+    },
   },
   {
     sequelize,

@@ -13,7 +13,7 @@ const newFormHandler = async (event) => {
           'Content-Type': 'application/json',
         },
       });
-  
+      console.log(response)
       if (response.ok) {
         document.location.replace('/trails');
         alert('Successfully Created Review');
@@ -40,9 +40,23 @@ const newFormHandler = async (event) => {
   };
   
   document
-    .querySelector('.new-review-form')
+    .querySelector('#submit-review-btn')
     .addEventListener('submit', newFormHandler);
   
   document
     .querySelector('.review-display-list')
     .addEventListener('click', delButtonHandler);
+
+    const reviews = async () => {
+      const response = await fetch('/api/reviews', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        document.location.replace('/trails');
+      } else {
+        alert(response.statusText);
+      }
+    };
+    

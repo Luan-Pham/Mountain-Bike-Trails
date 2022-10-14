@@ -1,14 +1,20 @@
 [
     {
-      "title": "Alum Rock County Park is my favorite trail!",
-      "content": "This is the best trail ever!"
+      "user_id": 1,
+      "trail_id": 1,
+      "title": "Fantastic Views",
+      "content": "Alum Rock County Park has my favorite views on any trail I've been on!"
     },
     {
-      "title": "EL Corte De Madera Creek Open Space is my favorite trail!",
-      "content": "This is the best trail ever!"
+      "user_id": 2,
+      "trail_id": 2,
+      "title": "Beginner Friendly",
+      "content": "El Corte De Madera Creek is a great trail for first timers, give it a try!"
     },
     {
-      "title": "Fremont Older is my favorite trail!",
-      "content": "This is the best trail ever!"
+      "user_id": 3,
+      "trail_id": 3,
+      "title": "Never Gets Old",
+      "content": "Fremont Older trail is one of my all time favorite trails!"
     }
   ]
