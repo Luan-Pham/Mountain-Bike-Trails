@@ -3,16 +3,21 @@ const Trail = require('./Trail');
 const Review = require('./Review');
 
 User.hasMany(Review, {
-  foreignKey: 'id',
-  onDelete: 'CASCADE',
+  foreignKey: 'user_id',
 });
 
 Trail.hasMany(Review, {
-  foreignKey: 'review_id',
+  foreignKey: 'trail_id',
 });
 
-User.belongsTo(Review, {
+Review.belongsTo(Trail, {
+  foreignKey: 'trail_id',
+  onDelete: 'CASCADE',
+});
+
+Review.belongsTo(User, {
   foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 });
 
 module.exports = { User, Trail, Review };
