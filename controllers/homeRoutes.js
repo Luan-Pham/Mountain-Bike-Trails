@@ -168,9 +168,11 @@ router.get('/login', (req, res) => {
 });
 
 //render review form page
-router.get('/reviews', async (req, res) => {
+router.get('/newreview/trail/:id', async (req, res) => {
   
-  res.render('review');
+  res.render('review', {
+    trailId: req.params.id
+  });
 });
 
 //get data entered in review form and pass through trails template
