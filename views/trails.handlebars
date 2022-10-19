@@ -64,7 +64,7 @@
   <div class="card-body">
     <h5 class="card-title">{{trail.name}}</h5>
     <p class="card-text"> {{trail.description}}</p>
-    <a href="/reviews" class="btn btn-primary">Leave a Review</a>
+    <a href="/newreview/trail/{{trail.id}}" class="btn btn-primary">Leave a Review</a>
     <h6 class="card-title">User Reviews:</h6>
       {{#if reviews.length}}
       <div class="review-display-list">
@@ -86,4 +86,3 @@
 </div>
 {{/each}}
 <script src='/js/showtrails.js'></script>
-<script src='/js/review.js'></script>

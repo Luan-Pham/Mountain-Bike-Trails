@@ -4,11 +4,12 @@ const newFormHandler = async (event) => {
   
     const title = document.querySelector('#review-title').value.trim();
     const content = document.querySelector('#review-content').value.trim();
+    const trail_id = document.querySelector('#trailId').value.trim();
   
     if (title && content) {
       const response = await fetch(`/api/reviews`, {
         method: 'POST',
-        body: JSON.stringify({ title, content }),
+        body: JSON.stringify({ title, content, trail_id }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -43,10 +44,10 @@ const newFormHandler = async (event) => {
     .querySelector('#submit-review-btn')
     .addEventListener('submit', newFormHandler);
   
-  document
+  /*document
     .querySelector('.review-display-list')
     .addEventListener('click', delButtonHandler);
-
+    */
     const reviews = async () => {
       const response = await fetch('/api/reviews', {
         method: 'GET',
