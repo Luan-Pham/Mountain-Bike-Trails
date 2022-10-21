@@ -20,6 +20,7 @@ router.get('/trails', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('trails', {
       trails,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -150,7 +151,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -171,7 +172,8 @@ router.get('/login', (req, res) => {
 router.get('/newreview/trail/:id', async (req, res) => {
   
   res.render('review', {
-    trailId: req.params.id
+    trailId: req.params.id,
+    logged_in: req.session.logged_in,
   });
 });
 
@@ -194,6 +196,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('trails', { 
       reviews,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);

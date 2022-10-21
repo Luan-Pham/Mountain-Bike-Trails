@@ -6,7 +6,7 @@ const newFormHandler = async (event) => {
     const content = document.querySelector('#review-content').value.trim();
     const trail_id = document.querySelector('#trailId').value.trim();
   
-    if (title && content) {
+    if (title && content && trail_id) {
       const response = await fetch(`/api/reviews`, {
         method: 'POST',
         body: JSON.stringify({ title, content, trail_id }),
@@ -14,7 +14,6 @@ const newFormHandler = async (event) => {
           'Content-Type': 'application/json',
         },
       });
-      console.log(response)
       if (response.ok) {
         document.location.replace('/trails');
         alert('Successfully Created Review');
@@ -24,30 +23,10 @@ const newFormHandler = async (event) => {
     }
   };
   
-  const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/reviews/${id}`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/trails');
-      } else {
-        alert('Failed to delete review');
-      }
-    }
-  };
-  
   document
     .querySelector('#submit-review-btn')
     .addEventListener('submit', newFormHandler);
   
-  /*document
-    .querySelector('.review-display-list')
-    .addEventListener('click', delButtonHandler);
-    */
     const reviews = async () => {
       const response = await fetch('/api/reviews', {
         method: 'GET',

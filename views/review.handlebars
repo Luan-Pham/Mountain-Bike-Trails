@@ -1,3 +1,5 @@
+
+ {{#if logged_in}}
 <div class="row mt-4">
   <h3>Create Your Review</h3>
     <form class="form new-review-form" id="submit-review-btn">
@@ -17,3 +19,8 @@
 </div>
 
 <script src='/js/review.js'></script>
+{{else}}
+<div class="row mt-4" id="login-row">
+  <h1>Please <a href='/login'>login</a> or signup to leave a review</h1>
+</div>
+{{/if}}
