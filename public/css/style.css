@@ -150,6 +150,14 @@ img {
   grid-template-rows: max-content 300px 1fr;
 }
 
+#login-row{
+  width: 60%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: darkgray;
+  display: flexbox;
+}
+
 /* added styling for title animation*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
